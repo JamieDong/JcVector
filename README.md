@@ -1,4 +1,4 @@
-##### 矢量图VectorDrawable实现搜索框轨迹动画
+### 矢量图VectorDrawable实现搜索框轨迹动画
 **SVG和Vector的差异**
 - SVG——前端中使用，是一套语法规范
 - Vector——在Android中使用
@@ -11,22 +11,22 @@
 - H = horizontal lineto(H X)：画水平线到指定的X坐标位置
 - V = vertical lineto(V Y)：画垂直线到指定的Y坐标位置
 
-#####相关网站
+### 相关网站
 [SVG编辑器](http://editor.method.ac/) <br/>
 [SVG转VectorDrawable(需翻墙)](http://inloop.github.io/svg2android/)<br/>
 [iconfont](http://www.iconfont.cn)
 
 
-#####使用VectorDrawable的好处
+### 使用VectorDrawable的好处
 **三种格式的体积对比**
 从下图可以看到从.png到.svg到再到Android可以使用的VectorDrawable体积成倍数减小。而且使用VectorDrawable可以不用考虑缩放，让图像完全保真。
 ![image.png](https://upload-images.jianshu.io/upload_images/11184437-2484c545396f07bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#####生成VectorDrawable
+### 生成VectorDrawable
 **静态的VectorDrawable使用**
 1.项目中`drawable`文件夹右键new>Vector Asset
     生成的xml文件中`android:viewportHeight="1024.0"`(定义图像被划分的比例大小)这个属性代表，把固定大小的矢量图均匀的分成1024等份。后面写 `android:pathData`的时候，就以1024为基线坐标，而不是以具体的大小数值去做图标。这样做的好处是，如果说VectorDrawable大小有变化，我们只需要通过`viewportHeight`去做映射就可以了，而不需要改变`pathData`。
-#####项目中使用VectorDrawable
+### 项目中使用VectorDrawable
 gradle中添加`vectorDrawables.useSupportLibrary = true`
 ```
 <Button
@@ -69,7 +69,7 @@ VectorDrawable的xml文件中path要用group标签套上，否则效果会出不
             android:pathData="M14.99,13v-3L22,10L22,8h-7.01L14.99,5L11,9l3.99,4z"/>
     </group>
 ```
-#####实现搜索框与轨迹动画
+### 实现搜索框与轨迹动画
 
 ![](https://upload-images.jianshu.io/upload_images/11184437-159ce3a2a9c2d8d1.gif?imageMogr2/auto-orient/strip)
 
@@ -93,7 +93,7 @@ VectorDrawable的xml文件中path要用group标签套上，否则效果会出不
 </objectAnimator>
 ```
 
-#####动态VectorDrawable的兼容性
+### 动态VectorDrawable的兼容性
 **向下兼容问题**
 Path Morphing——路径变换动画，在Android pre-L版本下是无法使用的
 Path Interpolation——路径插值器，在Android pre-L版本只能使用系统的插值器，不能自定义
@@ -103,7 +103,7 @@ Path Morphing——路径变换动画，在Android L版本以上需要使用代�
 不支持从Strings.xml中读取<PahtData>
 
 
-#####路径动画变换效果
+### 路径动画变换效果
 ![](https://upload-images.jianshu.io/upload_images/11184437-c8fc432ababc0161.gif?imageMogr2/auto-orient/strip)
 
 
