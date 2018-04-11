@@ -1,4 +1,4 @@
-### 矢量图VectorDrawable实现搜索框轨迹动画
+### 矢量图VectorDrawable实现轨迹、路径变换动画
 **SVG和Vector的差异**
 - SVG——前端中使用，是一套语法规范
 - Vector——在Android中使用
@@ -18,12 +18,12 @@
 
 
 ### 使用VectorDrawable的好处
-**三种格式的体积对比**
+**三种格式的体积对比**<br/>
 从下图可以看到从.png到.svg到再到Android可以使用的VectorDrawable体积成倍数减小。而且使用VectorDrawable可以不用考虑缩放，让图像完全保真。
 ![image.png](https://upload-images.jianshu.io/upload_images/11184437-2484c545396f07bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ### 生成VectorDrawable
-**静态的VectorDrawable使用**
+**静态的VectorDrawable使用**<br/>
 1.项目中`drawable`文件夹右键new>Vector Asset
     生成的xml文件中`android:viewportHeight="1024.0"`(定义图像被划分的比例大小)这个属性代表，把固定大小的矢量图均匀的分成1024等份。后面写 `android:pathData`的时候，就以1024为基线坐标，而不是以具体的大小数值去做图标。这样做的好处是，如果说VectorDrawable大小有变化，我们只需要通过`viewportHeight`去做映射就可以了，而不需要改变`pathData`。
 ### 项目中使用VectorDrawable
@@ -41,7 +41,7 @@ static {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
 ```
-**动态的VectorDrawable使用**
+**动态的VectorDrawable使用**<br/>
    配置动画粘合剂——animated-vector：让属性动画作用到VectorDrawable中
 ```
 <animated-vector
@@ -94,12 +94,12 @@ VectorDrawable的xml文件中path要用group标签套上，否则效果会出不
 ```
 
 ### 动态VectorDrawable的兼容性
-**向下兼容问题**
+**向下兼容问题**<br/>
 Path Morphing——路径变换动画，在Android pre-L版本下是无法使用的
-Path Interpolation——路径插值器，在Android pre-L版本只能使用系统的插值器，不能自定义
-**向上兼容问题**
-Path Morphing——路径变换动画，在Android L版本以上需要使用代码配置
-**抽取string兼容问题**
+Path Interpolation——路径插值器，在Android pre-L版本只能使用系统的插值器，不能自定义<br/>
+**向上兼容问题**<br/>
+Path Morphing——路径变换动画，在Android L版本以上需要使用代码配置<br/>
+**抽取string兼容问题**<br/>
 不支持从Strings.xml中读取<PahtData>
 
 
