@@ -1,4 +1,4 @@
-#####矢量图VectorDrawable实现搜索框轨迹动画
+##### 矢量图VectorDrawable实现搜索框轨迹动画
 **SVG和Vector的差异**
 - SVG——前端中使用，是一套语法规范
 - Vector——在Android中使用
@@ -12,8 +12,8 @@
 - V = vertical lineto(V Y)：画垂直线到指定的Y坐标位置
 
 #####相关网站
-[SVG编辑器](http://editor.method.ac/)
-[SVG转VectorDrawable(需翻墙)](http://inloop.github.io/svg2android/)
+[SVG编辑器](http://editor.method.ac/) <br/>
+[SVG转VectorDrawable(需翻墙)](http://inloop.github.io/svg2android/)<br/>
 [iconfont](http://www.iconfont.cn)
 
 
